@@ -1,1 +1,0 @@
-# 30Day_JavaScript_Challenge
