@@ -83,7 +83,7 @@ console.log(response);
 
 // Task 8
 
-for (key in library) {
+for (let key in library) {
     console.log(key);
 };
 
@@ -92,3 +92,6 @@ for (key in library) {
 console.log(Object.keys(book));
 console.log(Object.values(book));
 
+
+
+export default book;

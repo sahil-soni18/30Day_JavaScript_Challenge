@@ -1,0 +1,12 @@
+{
+  "name": "javascript_30-day_challenge",
+  "version": "1.0.0",
+  "description": "Welcome to my 30-day JavaScript challenge journey with Chai aur Code! This repository documents my progress as I work through various JavaScript exercises and projects each day.",
+  "type": "module",
+  "main": "Day-1_Variables_And_DataTypes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sahil",
+  "license": "ISC"
+}
