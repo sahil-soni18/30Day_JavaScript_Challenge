@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .innerContainer {
+            height: 100px;
+            width: 100px;
+        }
+
+        .theme {
+            background-color: black;
+            color: aliceblue;
+        }
+
+        img {
+            border: 2px solid transparent; /* Set a default border to see the color change */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Activity 1: Selecting and manipulating elements -->
+
+        <!-- Task 1: -->
+        <h1 id="heading">This is heading...</h1>
+
+        <!-- Task 2 -->
+        <div class="innerContainer"></div>
+
+        <!-- Activity 2: Creating and appending elements -->
+
+        <!-- Task 3 -->
+
+        <!-- Task 4 -->
+        <ul>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+        </ul>
+
+        <!-- Activity 3: Remove Element -->
+
+        <!-- Task 5 -->
+
+        <!-- Activity 4: Modifying Attributes and Classes -->
+
+        <!-- Task 7 -->
+
+        <img src="#" alt="Image">
+
+        <!-- Task 8 -->
+
+        <button onclick="toggleClass()">Toggle Class</button>
+
+        <!-- Activity 5 Event Handling -->
+        <!-- Task 9 -->
+
+        <p class="paragraph">This is Text Content...</p>
+        <button onclick="changeContent()">Change Content</button>
+    </div>
+
+    <script>
+        // Task 1
+        const heading = document.getElementById('heading');
+        heading.innerHTML = "This is updated Heading...";
+
+        // Task 2
+        const innerContainer = document.getElementsByClassName('innerContainer')[0];
+        innerContainer.style.backgroundColor = "black";
+
+        // Task 3
+        const customDiv = document.createElement("div");
+        customDiv.innerText = "Some Text in Custom Div Element...";
+        document.body.appendChild(customDiv);
+
+        // Task 4
+        const liElement = document.createElement("li");
+        liElement.innerText = "List Item 4";
+        document.getElementsByTagName("ul")[0].appendChild(liElement);
+
+        // Activity 3: Remove Element
+        // Task 5
+        innerContainer.remove();
+
+        // Task 6
+        const ulElement = document.getElementsByTagName("ul")[0];
+        if (ulElement.lastElementChild) {
+            ulElement.lastElementChild.remove();
+        }
+
+        // Activity 4: Modifying Attributes And Classes
+        // Task 7
+        const image = document.querySelector("img");
+        image.src = "./Day9Challenge.png";
+
+        // Task 8
+        function toggleClass() {
+            document.querySelector("div").classList.toggle("theme");
+        }
+
+        // Task 9
+        function changeContent() {
+            document.querySelector(".paragraph").innerHTML = "And This is Updated Text Of P Tag...";
+        }
+
+        // Task 10
+        image.addEventListener("mouseover", function () {
+            this.style.borderColor = "red";
+        });
+    </script>
+</body>
+</html>
