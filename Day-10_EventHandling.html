@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden { opacity: 0; }
+        .visible { opacity: 1; }
+    </style>
+</head>
+<body>
+    <!-- Activity 1: Basic Event Handling...  -->
+    Task 1:
+
+    <h1 id="Heading">Heading...</h1>
+    <button onclick="changeContent()">change content</button>
+
+    <img src="Day9Challenge.png" alt="Image" id="img" class="visible" />
+
+    <!-- Activity 2: Mouse Events -->
+    Task 3:
+    <div id="mouseElement" style="width: 100px; height: 100px; background-color: lightblue;">Mouse Over Me</div>
+
+    Task 4:
+    <!-- <div id="mouseoutElement" style="width: 100px; height: 100px; background-color: lightcoral;">Mouse Out Me</div> -->
+
+    <!-- Activity 3: Keyboard Events -->
+    Task 5:
+    <input type="text" id="keydownInput" placeholder="Type something..." />
+
+    Task 6:
+    <input type="text" id="keyupInput" placeholder="Type something..." />
+    <p id="keyupDisplay"></p>
+
+    <!-- Activity 4: Form Events -->
+    Task 7:
+    <form id="myForm">
+        <input type="text" name="name" placeholder="Name" />
+        <button type="submit">Submit</button>
+    </form>
+
+    Task 8:
+    <select id="mySelect">
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2">Option 2</option>
+        <option value="Option 3">Option 3</option>
+    </select>
+    <p id="selectDisplay"></p>
+
+    <!-- Activity 5: Event Delegation -->
+    Task 9:
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    Task 10:
+    <div id="parentElement">
+        <button id="addChild">Add Child</button>
+    </div>
+
+    <script>
+        function changeContent() {
+            document.getElementById('Heading').textContent = 'New Heading...';
+        }
+
+        document.getElementById('img').addEventListener('dblclick', (event) => {
+            const img = document.getElementById("img");
+            if (img.classList.contains('visible')) {
+                img.classList.remove('visible');
+                img.classList.add('hidden');
+            } else {
+                img.classList.remove('hidden');
+                img.classList.add('visible');
+            }
+        });
+
+        // Task 3: Mouseover event
+        document.getElementById('mouseElement').addEventListener('mouseover', () => {
+            document.getElementById('mouseElement').style.backgroundColor = 'lightgreen';
+        });
+
+        // Task 4: Mouseout event
+        document.getElementById('mouseElement').addEventListener('mouseout', () => {
+            document.getElementById('mouseElement').style.backgroundColor = 'lightcoral';
+        });
+
+        // Task 5: Keydown event
+        document.getElementById('keydownInput').addEventListener('keydown', function(event) {
+    console.log('Key pressed: ', event.key);
+  });
+
+        // Task 6: Keyup event
+        document.getElementById('keyupInput').addEventListener('keyup', (event) => {
+            document.getElementById('keyupDisplay').textContent = event.target.value;
+        });
+
+// Task 7: Submit event
+document.getElementById('myForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const input = document.querySelector('input[name="name"]');
+            console.log('Form data:', input.value);
+        });
+
+        // Task 8: Change event
+        document.getElementById('mySelect').addEventListener('change', (event) => {
+            document.getElementById('selectDisplay').textContent = 'Selected: ' + event.target.value;
+        });
+
+        // Task 9: Click event using event delegation
+        document.getElementById('myList').addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                console.log('Clicked item:', event.target.textContent);
+            }
+        });
+
+        // Task 10: Event listener for parent element
+        document.getElementById('addChild').addEventListener('click', () => {
+            const newChild = document.createElement('div');
+            newChild.textContent = 'New Child';
+            newChild.className = 'child';
+            document.getElementById('parentElement').appendChild(newChild);
+        });
+
+        document.getElementById('parentElement').addEventListener('click', (event) => {
+            if (event.target.classList.contains('child')) {
+                console.log('Child element clicked:', event.target.textContent);
+            }
+        });
+    </script>
+</body>
+</html>
