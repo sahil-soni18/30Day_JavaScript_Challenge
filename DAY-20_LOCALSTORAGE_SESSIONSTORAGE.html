@@ -1,0 +1,39 @@
+<!-- // Activity 2: Using LocalStorage -->
+
+<!-- // Task 3: Create a simple form that saves user input (e.g., name and email) to `localStorage` when submitted. Retrieve and display the saved data on page load. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LocalStorage Form</title>
+</head>
+<body>
+    <form id="userForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Save</button>
+    </form>
+    <div id="displayData"></div>
+    <script>
+        // Save form data to localStorage on submit
+        document.getElementById('userForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            localStorage.setItem('userData', JSON.stringify({ name, email }));
+            displayData();
+        });
+
+        // Display saved data on page load
+        function displayData() {
+            let userData = JSON.parse(localStorage.getItem('userData'));
+            if (userData) {
+                document.getElementById('displayData').innerText = `Name: ${userData.name}, Email: ${userData.email}`;
+            }
+        }
+
+        window.onload = displayData;
+    </script>
+</body>
+</html>
