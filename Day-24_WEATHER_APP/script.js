@@ -1,8 +1,14 @@
-const apiKey = 'c506502b4a896070e322d43f7308b172';
+const apiKey = 'Your API Key';
 const weatherContainer = document.getElementById('weather-info');
 const cityInput = document.getElementById('city-input');
 const searchButton = document.getElementById('search-button');
 const forecastContainer = document.getElementById('forecast-container');
+
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+
 
 searchButton.addEventListener('click', () => {
     const city = cityInput.value;
